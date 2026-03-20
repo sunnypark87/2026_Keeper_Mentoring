@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Reveal, { type RevealApi } from "reveal.js";
+import type { RevealApi } from "reveal.js";
 
 type RevealDeckProps = {
   children: React.ReactNode;
@@ -17,31 +17,48 @@ export function RevealDeck({ children }: RevealDeckProps) {
       return;
     }
 
-    const deck = new Reveal(deckRef.current, {
-      embedded: true,
-      controls: true,
-      progress: true,
-      center: false,
-      hash: true,
-      slideNumber: "c/t",
-      transition: "slide",
-      width: 1280,
-      height: 720,
-      margin: 0.06,
-    });
+    let isMounted = true;
 
-    revealInstanceRef.current = deck;
-    void deck
-      .initialize()
-      .then(() => {
-        setIsReady(true);
-      })
-      .catch((error: unknown) => {
+    const initializeDeck = async () => {
+      try {
+        const { default: Reveal } = await import("reveal.js");
+
+        if (!deckRef.current || revealInstanceRef.current || !isMounted) {
+          return;
+        }
+
+        const deck = new Reveal(deckRef.current, {
+          embedded: true,
+          controls: true,
+          progress: true,
+          center: false,
+          hash: true,
+          slideNumber: "c/t",
+          transition: "slide",
+          width: 1280,
+          height: 720,
+          margin: 0.06,
+        });
+
+        revealInstanceRef.current = deck;
+        await deck.initialize();
+
+        if (isMounted) {
+          setIsReady(true);
+        }
+      } catch (error: unknown) {
         console.error("Reveal initialization failed", error);
-        setIsReady(false);
-      });
+
+        if (isMounted) {
+          setIsReady(false);
+        }
+      }
+    };
+
+    void initializeDeck();
 
     return () => {
+      isMounted = false;
       revealInstanceRef.current?.destroy();
       revealInstanceRef.current = null;
       setIsReady(false);
