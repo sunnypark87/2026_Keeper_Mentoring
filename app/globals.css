@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f1e8;
+  --foreground: #172033;
+  --slide-surface: #ffffff;
+  --font-sans: "Avenir Next", "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+  --font-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono",
+    Menlo, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.deck-frame {
+  width: 100%;
+  min-height: 32rem;
+  height: min(72vh, 54rem);
+}
+
+.reveal {
+  color: #172033;
+  font-family: var(--font-sans), sans-serif;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 1.5rem 2.5rem;
+}
+
+.reveal.is-static .slides {
+  position: static;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.reveal.is-static .slides > section {
+  display: block;
+  position: static;
+  width: auto;
+  height: auto;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.reveal.is-static .fragment {
+  opacity: 1;
+  visibility: visible;
+}
+
+.week-page .deck-frame {
+  min-height: 100dvh;
+  height: 100dvh;
+  background: var(--slide-surface);
+}
+
+.week-page .reveal {
+  background: var(--slide-surface);
+}
+
+.week-page .reveal .slides {
+  background: var(--slide-surface);
+}
+
+.week-page .reveal.is-static .slides {
+  min-height: 100dvh;
+}
+
+.reveal .progress {
+  color: #d97706;
+}
+
+.reveal .controls {
+  color: #172033;
+}
+
+.slide-panel {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.slide-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.slide-list li::marker {
+  color: #d97706;
+}
+
+@media (max-width: 768px) {
+  .deck-frame {
+    min-height: 24rem;
+    height: 68vh;
+  }
+
+  .week-page .reveal.is-static .slides {
+    min-height: 100dvh;
+  }
+
+  .reveal .slides section {
+    padding: 1rem 1.25rem;
+  }
+}
