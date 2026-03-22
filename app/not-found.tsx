@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[var(--background)] px-6 py-16">
-      <div className="max-w-xl rounded-[2rem] border border-slate-200 bg-white p-10 text-center shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+    <main className="flex min-h-screen items-center justify-center bg-background px-6 py-16">
+      <div className="not-found-card max-w-xl rounded-[2rem] border border-slate-200 bg-slide-surface p-10 text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
           404
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground">
           페이지를 찾을 수 없습니다
         </h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">
