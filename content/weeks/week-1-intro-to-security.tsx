@@ -1,66 +1,136 @@
+const mentoringSchedule = [
+  {
+    month: "3월",
+    calendar: [
+      [1, 2, 3, 4, 5, 6, 7],
+      [8, 9, 10, 11, 12, 13, 14],
+      [15, 16, 17, 18, 19, 20, 21],
+      [22, 23, 24, 25, 26, 27, 28],
+      [29, 30, 31, null, null, null, null],
+    ],
+    entries: {
+      23: "1주차",
+      30: "2주차",
+    },
+  },
+  {
+    month: "4월",
+    calendar: [
+      [null, null, null, 1, 2, 3, 4],
+      [5, 6, 7, 8, 9, 10, 11],
+      [12, 13, 14, 15, 16, 17, 18],
+      [19, 20, 21, 22, 23, 24, 25],
+      [26, 27, 28, 29, 30, null, null],
+    ],
+    entries: {
+      27: "3주차",
+    },
+  },
+  {
+    month: "5월",
+    calendar: [
+      [null, null, null, null, null, 1, 2],
+      [3, 4, 5, 6, 7, 8, 9],
+      [10, 11, 12, 13, 14, 15, 16],
+      [17, 18, 19, 20, 21, 22, 23],
+      [24, 25, 26, 27, 28, 29, 30],
+      [31, null, null, null, null, null, null],
+    ],
+    entries: {
+      4: "4주차",
+      11: "5주차",
+      18: "6주차",
+      25: "7주차",
+    },
+  },
+];
+
+const curriculum = [
+  {
+    week: "1주차",
+    title: "학습 환경 설정 & 리눅스 기초",
+    points: [
+      "인사 및 앞으로의 멘토링 방향 논의",
+      "리눅스 환경 설정",
+    ],
+  },
+  {
+    week: "2~3주차",
+    title: "C 언어와 메모리 구조",
+    points: [
+      "포인터와 주소 개념 이해",
+      "메모리 영역 이해",
+    ],
+  },
+  {
+    week: "4주차",
+    title: "CPU와 어셈블리 기초",
+    points: [
+      "CPU 레지스터의 역할과 동작 이해",
+      "함수 호출 구조 분석",
+      "어셈블리 기본 명령어 학습",
+    ],
+  },
+  {
+    week: "5~6주차",
+    title: "버퍼 오버플로우 (BOF)",
+    points: [
+      "버퍼 오버플로우 개념 이해",
+      "스택 메모리 덮어쓰는 방법 학습",
+      "버퍼 오버플로우 실습",
+    ],
+  },
+  {
+    week: "7주차",
+    title: "보호 기법",
+    points: [
+      "Stack Canary, NX, ASLR 개념과 원리 이해",
+      "워게임 문제 풀이",
+    ],
+  },
+];
+
+const curriculumColumns = [curriculum.slice(0, 3), curriculum.slice(3)];
+
 export function Week1IntroToSecurityDeck() {
   return (
     <>
       <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 text-left">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
             Week 1
           </p>
           <h1 className="text-5xl font-semibold tracking-tight text-slate-900">
-            Intro to Security
+            학습 환경 설정 & 리눅스 기초
           </h1>
-          <p className="text-2xl leading-relaxed text-slate-600">
-            멘토링의 출발점으로, 보안을 왜 배워야 하는지와 앞으로 어떤 관점으로
-            학습할지 정리합니다.
+          <p className="max-w-4xl text-2xl leading-relaxed text-slate-600">
+            첫 주차는 멘토링 운영 방식을 맞추고, 전체 커리큘럼을 함께 점검한
+            뒤 각자 실습 환경을 준비하는 시간입니다.
           </p>
-          <div className="slide-panel">
-            <p className="text-base uppercase tracking-[0.2em] text-amber-600">
-              Orientation
-            </p>
-            <p className="mt-3 text-xl leading-8 text-slate-700">
-              이번 시간은 &quot;보안이란 무엇인가&quot;를 정의하고, 앞으로의 학습
-              기준선을 맞추는 시간입니다.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
-          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            이번 주 목표
-          </h2>
-          <ul className="slide-list text-2xl text-slate-700">
-            <li className="fragment">보안을 기능이 아니라 사고방식으로 이해하기</li>
-            <li className="fragment">공격자 관점과 방어자 관점의 차이 파악하기</li>
-            <li className="fragment">웹 서비스에서 신뢰 경계가 어디인지 감 잡기</li>
-            <li className="fragment">이번 학기 멘토링의 학습 흐름 미리 보기</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
-          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            왜 보안이 중요한가
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-3 gap-4">
             <article className="slide-panel">
-              <h3 className="text-xl font-semibold text-slate-900">신뢰</h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                사용자는 서비스가 안전하다고 믿을 때만 데이터를 맡깁니다.
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Goal 1
+              </p>
+              <p className="mt-3 text-xl leading-8 text-slate-700">
+                멘토링 일정과 진행 방식을 확정한다
               </p>
             </article>
             <article className="slide-panel">
-              <h3 className="text-xl font-semibold text-slate-900">영향</h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                작은 취약점도 개인정보, 서비스 운영, 평판에 큰 영향을 줍니다.
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Goal 2
+              </p>
+              <p className="mt-3 text-xl leading-8 text-slate-700">
+                커리큘럼을 확인한다
               </p>
             </article>
             <article className="slide-panel">
-              <h3 className="text-xl font-semibold text-slate-900">습관</h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                보안은 마지막 점검이 아니라 설계와 구현 전반의 습관입니다.
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Goal 3
+              </p>
+              <p className="mt-3 text-xl leading-8 text-slate-700">
+                각자 운영체제에 맞는 실습 환경 구성을 정한다
               </p>
             </article>
           </div>
@@ -70,31 +140,43 @@ export function Week1IntroToSecurityDeck() {
       <section>
         <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            보안을 볼 때 가장 먼저 잡을 3가지
+            오늘 할 것들 요약
           </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="slide-panel">
-              <h3 className="text-2xl font-semibold text-slate-900">
-                Confidentiality
-              </h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                허용되지 않은 사람이 정보를 보지 못하게 하는 것
+
+          <div className="grid grid-cols-2 gap-4">
+            <article className="slide-panel fragment">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                01
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                인사 및 멘토 / 멘티 소개
               </p>
             </article>
-            <article className="slide-panel">
-              <h3 className="text-2xl font-semibold text-slate-900">
-                Integrity
-              </h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                데이터와 동작이 의도하지 않게 변조되지 않게 하는 것
+            <article className="slide-panel fragment">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                02
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                멘토링 일정 확정
               </p>
             </article>
-            <article className="slide-panel">
-              <h3 className="text-2xl font-semibold text-slate-900">
-                Availability
-              </h3>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                필요한 순간에 정상적으로 사용할 수 있게 유지하는 것
+            <article className="slide-panel fragment">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                03
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                커리큘럼 점검
+              </p>
+              <p className="mt-2 text-lg leading-7 text-slate-600">
+                멘티들 수준 점검, 의견 종합
+              </p>
+            </article>
+            <article className="slide-panel fragment">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                04
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                환경설정
               </p>
             </article>
           </div>
@@ -104,110 +186,254 @@ export function Week1IntroToSecurityDeck() {
       <section>
         <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            공격자는 어디를 볼까
+            멘토링 일정
           </h2>
-          <ul className="slide-list text-2xl text-slate-700">
-            <li className="fragment">입력값을 어디까지 믿고 있는가</li>
-            <li className="fragment">사용자 신원을 어떻게 확인하는가</li>
-            <li className="fragment">로그인 이후 어떤 권한 검사가 빠져 있는가</li>
-            <li className="fragment">개발 편의를 위해 남겨둔 우회 경로가 있는가</li>
-          </ul>
-          <div className="slide-panel">
-            <p className="text-xl leading-8 text-slate-700">
-              보안 학습의 핵심은 취약점 이름을 외우는 것보다
-              &quot;이 시스템은 무엇을 신뢰하고 있는가?&quot;를 계속 묻는
-              습관입니다.
-            </p>
+
+          <div className="schedule-calendar-grid">
+            {mentoringSchedule.map((month) => (
+              <article key={month.month} className="slide-panel calendar-panel">
+                <div className="calendar-month-title">{month.month} 2026</div>
+
+                <div className="calendar-table">
+                  <div className="calendar-weekdays">
+                    {["일", "월", "화", "수", "목", "금", "토"].map(
+                      (day) => (
+                        <span key={day}>{day}</span>
+                      ),
+                    )}
+                  </div>
+
+                  <div className="calendar-grid">
+                    {month.calendar.flat().map((day, index) => {
+                      const weekLabel = day
+                        ? month.entries[day as keyof typeof month.entries]
+                        : undefined;
+
+                      return (
+                        <div
+                          key={`${month.month}-${day ? `day-${day}` : `empty-${index}`}`}
+                          className={`calendar-day ${day ? "" : "is-empty"} ${
+                            weekLabel ? "is-session" : ""
+                          }`}
+                        >
+                          {day ? (
+                            <>
+                              <span className="calendar-date">{day}</span>
+                              {weekLabel ? (
+                                <span className="calendar-badge">
+                                  {weekLabel}
+                                </span>
+                              ) : null}
+                            </>
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="curriculum-section">
+        <div className="curriculum-slide mx-auto flex max-w-6xl flex-col gap-4 text-left">
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
+            멘토링 커리큘럼
+          </h2>
+
+          <div className="curriculum-split">
+            {curriculumColumns.map((column, columnIndex) => (
+              <section key={`column-${columnIndex}`} className="curriculum-column-panel">
+                <p className="curriculum-column-title">
+                  {columnIndex === 0 ? "1~4주차" : "5~7주차"}
+                </p>
+                <div className="curriculum-column">
+                {column.map((item) => (
+                  <article key={item.week} className="curriculum-card">
+                    <div className="curriculum-card-head">
+                      <div className="curriculum-week">{item.week}</div>
+                      <h3 className="text-xl font-semibold text-slate-900">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <ul className="curriculum-points mt-2 slide-list text-base text-slate-700">
+                      {item.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+                </div>
+              </section>
+            ))}
           </div>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 text-left">
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            웹 보안은 결국 흐름을 이해하는 것
+            시스템 해킹이란?
           </h2>
-          <div className="grid gap-4 md:grid-cols-4">
-            <article className="slide-panel">
-              <h3 className="text-lg font-semibold text-slate-900">1. 요청</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">
-                브라우저가 서버에 데이터를 보냅니다.
-              </p>
-            </article>
-            <article className="slide-panel">
-              <h3 className="text-lg font-semibold text-slate-900">2. 처리</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">
-                서버가 입력을 해석하고 비즈니스 로직을 실행합니다.
-              </p>
-            </article>
-            <article className="slide-panel">
-              <h3 className="text-lg font-semibold text-slate-900">3. 저장</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">
-                DB, 세션, 로그 등 다양한 저장소와 연결됩니다.
-              </p>
-            </article>
-            <article className="slide-panel">
-              <h3 className="text-lg font-semibold text-slate-900">4. 응답</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">
-                결과가 다시 사용자에게 노출됩니다.
-              </p>
-            </article>
-          </div>
-          <p className="text-xl leading-8 text-slate-600">
-            취약점은 이 흐름 어디에서든 생길 수 있고, 멘토링은 이 지점을
-            하나씩 분해해서 보는 방식으로 진행합니다.
-          </p>
-        </div>
-      </section>
 
-      <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
-          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            이번 학기 큰 흐름
-          </h2>
-          <ul className="slide-list text-2xl text-slate-700">
-            <li className="fragment">웹의 동작 원리와 신뢰 경계</li>
-            <li className="fragment">입력 검증, 인증, 세션, 권한 관리</li>
-            <li className="fragment">대표적인 웹 취약점과 방어 전략</li>
-            <li className="fragment">실습 중심으로 사고 과정 익히기</li>
-          </ul>
-        </div>
-      </section>
+          <div className="grid grid-cols-2 gap-4">
+            <article className="slide-panel">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Overview
+              </p>
+              <p className="mt-4 text-2xl leading-relaxed text-slate-700">
+                시스템 해킹은 프로그램이 메모리와 CPU를 어떻게 사용하는지
+                이해하고, 그 과정에서 생길 수 있는 취약점을 분석해 원하는
+                동작을 이끌어내는 분야입니다.
+              </p>
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                단순히 문제를 푸는 것보다, 입력이 어떻게 처리되고 함수 호출과
+                메모리 배치가 어떻게 이어지는지를 읽는 힘이 중요합니다.
+              </p>
+            </article>
 
-      <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
-          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            가벼운 과제
-          </h2>
-          <div className="slide-panel">
-            <p className="text-2xl font-semibold text-slate-900">
-              자주 사용하는 웹 서비스 하나를 고르고 생각해보기
-            </p>
-            <ul className="mt-6 slide-list text-xl text-slate-700">
-              <li>이 서비스는 어떤 정보를 보호해야 하는가?</li>
-              <li>어떤 사용자가 어떤 권한을 가져야 하는가?</li>
-              <li>입력값을 잘못 처리하면 어디가 가장 먼저 위험해질까?</li>
-            </ul>
+            <div className="flex flex-col gap-4">
+              <article className="slide-panel">
+                <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                  Learn 1
+                </p>
+                <p className="mt-3 text-xl leading-8 text-slate-700">
+                  리눅스 환경, C 언어, 메모리 구조를 바탕으로 프로그램이
+                  어떻게 동작하는지 이해합니다.
+                </p>
+              </article>
+              <article className="slide-panel">
+                <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                  Learn 2
+                </p>
+                <p className="mt-3 text-xl leading-8 text-slate-700">
+                  CPU 레지스터, 함수 호출, 어셈블리 명령어를 통해 실행 흐름을
+                  추적하는 방법을 익힙니다.
+                </p>
+              </article>
+              <article className="slide-panel">
+                <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                  Learn 3
+                </p>
+                <p className="mt-3 text-xl leading-8 text-slate-700">
+                  버퍼 오버플로우와 보호 기법을 배우면서 실제 취약점 분석의
+                  기본 감각을 익힙니다.
+                </p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 text-left">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 text-left">
           <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
-            다음 단계
+            Ubuntu 설치
           </h2>
-          <p className="text-2xl leading-relaxed text-slate-600">
-            다음 주차부터는 웹 보안의 기본 구조를 바탕으로, 실제로 어디에서
-            취약점이 생기는지 더 구체적으로 들어갑니다.
-          </p>
+
+          <div className="grid grid-cols-2 gap-4">
+            <article className="slide-panel">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                Windows
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                WSL2 + Ubuntu 권장
+              </p>
+              <ul className="mt-4 slide-list text-lg text-slate-700">
+                <li>관리자 PowerShell 실행</li>
+                <li>`wsl --install`로 WSL 기본 설치</li>
+                <li>`wsl --install -d Ubuntu`로 Ubuntu 지정 설치 가능</li>
+                <li>대안으로 Docker Desktop 사용 가능</li>
+              </ul>
+            </article>
+
+            <article className="slide-panel">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                MacOS
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-slate-900">
+                Multipass 또는 Docker
+              </p>
+              <ul className="mt-4 slide-list text-lg text-slate-700">
+                <li>Ubuntu 환경이 필요하면 Multipass 사용 권장</li>
+                <li>`multipass launch --name keeper-ubuntu`</li>
+                <li>`multipass shell keeper-ubuntu`</li>
+                <li>간단한 쉘 실습만 하면 기본 터미널도 가능</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 text-left">
+          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
+            zsh / oh-my-zsh 설치
+          </h2>
+
           <div className="slide-panel">
             <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
-              Preview
+              Ubuntu inside WSL / VM
             </p>
-            <p className="mt-3 text-2xl text-slate-900">
-              Week 2: Web Security Fundamentals
-            </p>
+            <div className="mt-4 flex flex-col gap-4">
+              <div>
+                <p className="text-lg font-semibold text-slate-900">
+                  1. zsh, git, curl 설치
+                </p>
+                <pre className="setup-command">
+sudo apt update
+sudo apt install -y zsh git curl
+chsh -s $(which zsh)
+                </pre>
+              </div>
+
+              <div>
+                <p className="text-lg font-semibold text-slate-900">
+                  2. oh-my-zsh 설치
+                </p>
+                <pre className="setup-command">
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 text-left">
+          <h2 className="text-4xl font-semibold tracking-tight text-slate-900">
+            기본적인 Ubuntu 사용법
+          </h2>
+
+          <div className="grid grid-cols-2 gap-4">
+            <article className="slide-panel">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                파일 / 디렉토리
+              </p>
+              <ul className="mt-4 slide-list text-lg text-slate-700">
+                <li>`pwd`, `ls`, `ls -al` 현재 위치와 파일 보기</li>
+                <li>`cd`, `cd ..`, `cd ~` 디렉토리 이동</li>
+                <li>`mkdir`, `touch` 생성</li>
+                <li>`cp`, `mv`, `rm`, `rm -r` 복사/이동/삭제</li>
+                <li>`cat`, `less`, `head`, `tail` 파일 내용 보기</li>
+              </ul>
+            </article>
+
+            <article className="slide-panel">
+              <p className="text-base font-semibold uppercase tracking-[0.2em] text-amber-600">
+                실습 때 자주 쓰는 것
+              </p>
+              <ul className="mt-4 slide-list text-lg text-slate-700">
+                <li>`sudo apt update`, `sudo apt install` 패키지 설치</li>
+                <li>`chmod +x` 실행 권한 주기</li>
+                <li>`grep`, `find` 검색</li>
+                <li>`file`, `strings` 바이너리 정보 확인</li>
+                <li>`gcc`, `gdb` 컴파일과 디버깅</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
