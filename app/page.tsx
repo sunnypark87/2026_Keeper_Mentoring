@@ -13,8 +13,7 @@ export default function Home() {
             시스템 해킹(Pwnable) 기초 멘토링
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-inverse-muted md:text-xl">
-            홈은 전체 목차 역할을 하고, 각 주차는 Reveal.js 기반 슬라이드
-            페이지로 분리합니다. 현재는 1주차 예시만 먼저 구성한 상태입니다.
+            이번 학기 동안 시스템 해킹을 위해 필요한 기본 지식과 해킹 기법 등을 학습할 예정입니다. 
           </p>
         </section>
 

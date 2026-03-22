@@ -41,7 +41,7 @@ export default async function WeekPage({ params }: WeekPageProps) {
   const DeckContent = week.deck;
 
   return (
-    <main className="week-page min-h-screen bg-slide-surface text-foreground">
+    <main className="week-page h-dvh overflow-hidden bg-slide-surface text-foreground">
       <header className="week-page-header flex items-start justify-between gap-4 p-4 md:p-6">
         <div className="week-banner max-w-xl rounded-2xl border border-accent-frame bg-canvas-elevated px-4 py-3 backdrop-blur-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">

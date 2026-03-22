@@ -113,7 +113,9 @@ body {
 
 .week-page {
   display: grid;
+  height: 100dvh;
   grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
 }
 
 .week-page-header {
