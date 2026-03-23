@@ -21,7 +21,11 @@ export function RevealDeck({ children }: RevealDeckProps) {
 
     const initializeDeck = async () => {
       try {
-        const { default: Reveal } = await import("reveal.js");
+        const [{ default: Reveal }, { default: Markdown }] =
+          await Promise.all([
+            import("reveal.js"),
+            import("reveal.js/plugin/markdown"),
+          ]);
 
         if (!deckRef.current || revealInstanceRef.current || !isMounted) {
           return;
@@ -38,6 +42,7 @@ export function RevealDeck({ children }: RevealDeckProps) {
           width: 1280,
           height: 720,
           margin: 0.06,
+          plugins: [Markdown],
         });
 
         revealInstanceRef.current = deck;

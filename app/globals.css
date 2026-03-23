@@ -101,6 +101,10 @@ body {
   visibility: visible;
 }
 
+.reveal:not(.is-ready) [data-markdown] {
+  visibility: hidden;
+}
+
 .week-page .deck-frame {
   min-height: 0;
   height: 100%;
@@ -156,6 +160,187 @@ body {
 
 .slide-list li::marker {
   color: var(--accent);
+}
+
+.reveal .slides section.markdown-slide {
+  width: 100%;
+  display: grid;
+  gap: 2.25rem;
+}
+
+.reveal .slides section.markdown-slide > * {
+  width: min(100%, 60rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .slides section.markdown-slide h1,
+.reveal .slides section.markdown-slide h2,
+.reveal .slides section.markdown-slide h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reveal .slides section.markdown-slide h1 + p,
+.reveal .slides section.markdown-slide h1 + ul,
+.reveal .slides section.markdown-slide h1 + ol,
+.reveal .slides section.markdown-slide h1 + h2,
+.reveal .slides section.markdown-slide h1 + h3,
+.reveal .slides section.markdown-slide h2 + p,
+.reveal .slides section.markdown-slide h2 + ul,
+.reveal .slides section.markdown-slide h2 + ol,
+.reveal .slides section.markdown-slide h2 + h3,
+.reveal .slides section.markdown-slide h3 + p,
+.reveal .slides section.markdown-slide h3 + ul,
+.reveal .slides section.markdown-slide h3 + ol {
+  margin-top: 0.75rem;
+}
+
+.reveal .slides section.markdown-slide h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+}
+
+.reveal .slides section.markdown-slide h2 {
+  font-size: 1.7rem;
+  line-height: 1.35;
+  color: rgb(146 64 14);
+}
+
+.reveal .slides section.markdown-slide h3 {
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.reveal .slides section.markdown-slide p,
+.reveal .slides section.markdown-slide li {
+  color: rgb(51 65 85);
+  font-size: 1.25rem;
+  line-height: 1.85;
+}
+
+.reveal .slides section.markdown-slide p {
+  margin: 0;
+}
+
+.reveal .slides section.markdown-slide ul,
+.reveal .slides section.markdown-slide ol {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: grid;
+  gap: 0.8rem;
+  list-style-position: outside;
+}
+
+.reveal .slides section.markdown-slide ul {
+  list-style-type: disc;
+}
+
+.reveal .slides section.markdown-slide ol {
+  list-style-type: decimal;
+}
+
+.reveal .slides section.markdown-slide li {
+  display: list-item;
+}
+
+.reveal .slides section.markdown-slide p + p,
+.reveal .slides section.markdown-slide p + ul,
+.reveal .slides section.markdown-slide p + ol,
+.reveal .slides section.markdown-slide p + h2,
+.reveal .slides section.markdown-slide p + h3,
+.reveal .slides section.markdown-slide ul + p,
+.reveal .slides section.markdown-slide ol + p,
+.reveal .slides section.markdown-slide ul + ul,
+.reveal .slides section.markdown-slide ol + ol,
+.reveal .slides section.markdown-slide ul + ol,
+.reveal .slides section.markdown-slide ol + ul,
+.reveal .slides section.markdown-slide ul + h2,
+.reveal .slides section.markdown-slide ul + h3,
+.reveal .slides section.markdown-slide ol + h2,
+.reveal .slides section.markdown-slide ol + h3,
+.reveal .slides section.markdown-slide pre + p,
+.reveal .slides section.markdown-slide pre + ul,
+.reveal .slides section.markdown-slide pre + ol,
+.reveal .slides section.markdown-slide pre + h2,
+.reveal .slides section.markdown-slide pre + h3,
+.reveal .slides section.markdown-slide table + p,
+.reveal .slides section.markdown-slide table + ul,
+.reveal .slides section.markdown-slide table + ol,
+.reveal .slides section.markdown-slide table + h2,
+.reveal .slides section.markdown-slide table + h3 {
+  margin-top: 0.85rem;
+}
+
+.reveal .slides section.markdown-slide li::marker {
+  color: var(--accent);
+}
+
+.reveal .slides section.markdown-slide hr {
+  border: 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.24);
+  margin: 0.5rem 0;
+}
+
+.reveal .slides section.markdown-slide pre {
+  margin: 0;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1rem;
+  background: rgb(248 250 252);
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  width: min(100%, 60rem);
+}
+
+.reveal .slides section.markdown-slide pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: rgb(30 41 59);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.reveal .slides section.markdown-slide code {
+  border-radius: 0.35rem;
+  background: rgb(241 245 249);
+  padding: 0.1rem 0.35rem;
+  color: rgb(15 23 42);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.9em;
+}
+
+.reveal .slides section.markdown-slide table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.9);
+}
+
+.reveal .slides section.markdown-slide th,
+.reveal .slides section.markdown-slide td {
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  text-align: left;
+  vertical-align: top;
+}
+
+.reveal .slides section.markdown-slide th {
+  background: rgb(248 250 252);
+  color: rgb(15 23 42);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.reveal .slides section.markdown-slide td {
+  color: rgb(51 65 85);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .setup-command {

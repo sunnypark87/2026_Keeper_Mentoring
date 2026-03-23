@@ -15,6 +15,12 @@ export default function Home() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-inverse-muted md:text-xl">
             이번 학기 동안 시스템 해킹을 위해 필요한 기본 지식과 해킹 기법 등을 학습할 예정입니다. 
           </p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-inverse-muted md:text-xl">
+            멘토 : 박재선
+          </p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-inverse-muted md:text-xl">
+            멘티 : 김현주, 박주영, 박지윤, 방성태, 임수희
+          </p>
         </section>
 
         <section className="flex flex-col gap-5">
