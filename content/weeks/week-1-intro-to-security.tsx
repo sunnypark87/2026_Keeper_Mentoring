@@ -4,7 +4,7 @@ const slides = [
   `# 1주차. 학습 환경 설정 & 리눅스 기초 
   <br>
   
-  첫 주차는 멘토링 운영 방식을 맞추고, 전체 커리큘럼을 함께 점검한 뒤 각자 실습 환경을 준비하는 시간입니다.
+  본격적인 멘토링 시작입니다. 재밌게 공부했으면 좋겠습니다!
   <br>
 
   ## 목표
@@ -104,52 +104,69 @@ const slides = [
   
   `,
 
-  `# Ubuntu 설치
-
-  <br>
-  
-  ## MacOS
-  ### 내장 Terminal 사용
-  <br>
-
-  특별한 설정 필요 x
-  ### Docker 사용
-  <br>
-
-  ### Ubuntu 가상머신 (VMWare, VirtualBox 등)
-  <br>
-  
-  `,
-
   [
-    "# zsh / oh-my-zsh 설치",
+    "# zsh 설치",
     "",
     "## 1. zsh, git, curl 설치",
     "### Ubuntu",
     "```bash",
-    "sudo apt update",
-    "sudo apt install -y zsh git curl",
-    "chsh -s $(which zsh)",
+    "$ sudo apt update",
+    "$ sudo apt install -y zsh git curl",
+    "$ chsh -s $(which zsh)",
     "```",
-    "### MacOS",
-    "```",
-    "// 1. brew가 다운받아져 있지 않은 경우",
-    '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
-    "// 2. git 설치",
-    "brew install git",
-    "// 3. curl 설치",
-    "brew install curl",
-    "// 4. zsh 설치",
-    "brew install zsh",
-    "// 5. zsh 적용",
-    "chsh -s $(which zsh)",
-    "```",
-    "",
-    "## 2. oh-my-zsh 설치",
-    "```bash",
-    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
-    "```",
+    
   ].join("\n"),
+
+  `# oh-my-zsh 설치
+  <br>
+
+  ## 2. oh-my-zsh 설치
+  <br>
+
+  \`\`\`
+  $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  \`\`\`
+  <br>
+
+  ## 3. powerlevel10k (oh-my-zsh 테마)
+  ### 폰트 설치
+  - [설치 안내 링크](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#meslo-nerd-font-patched-for-powerlevel10k)
+  <br>
+ 
+  ### 테마 설치
+  <br>
+
+  \`\`\`
+  $ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+  $ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+  \`\`\` 
+  
+  `,
+
+  `# 언어 환경 세팅
+  <br>
+  
+  ## gcc
+  <br>
+
+  \`\`\`
+  // 설치 확인
+  $ gcc --version
+
+  // 설치가 안되어 있으면
+  $ sudo apt update 
+  $ sudo apt install build-essential
+  \`\`\`
+  
+  ### gcc 사용법
+  
+
+  ## Python 설치 
+  <br>
+
+  - 필요할 때 업데이트 예정
+  
+  `,
 
   `# 기본적인 Ubuntu 사용법
 
