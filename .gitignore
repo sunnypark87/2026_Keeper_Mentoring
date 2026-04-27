@@ -1,6 +1,9 @@
 # PNPM
 node_modules/
 
+# Example code
+code/ 
+
 # Next.js
 .next/
 out/
