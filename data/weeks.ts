@@ -34,15 +34,13 @@ export const weeks: Week[] = [
     description: "3주차 자료입니다",
     deck: Week3PythonPwnDeck,
   },
-  /** 
   {
     weekNumber: 4,
     slug: "week-4-orw-shellcode",
     title: "ORW 셸코드와 shell_basic 분석",
     description: "4주차 자료입니다",
     deck: Week4OrwShellcodeDeck,
-  },
-  */
+  }
 ];
 
 export function getWeekBySlug(slug: string) {

@@ -31,7 +31,7 @@ const slides = [
   ## welcome 문제 실습
   <br>
 
-  ## 셸코드 이론 (셸코드 / 레지스터 / 어셈블리)`,
+  ## shell_basic 문제 소개`,
 
   `# 과제 리뷰
   <br>
