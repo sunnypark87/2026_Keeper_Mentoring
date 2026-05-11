@@ -3,6 +3,7 @@ import { Week1IntroToSecurityDeck } from "@/content/weeks/week-1-intro-to-securi
 import { Week2CPointerDeck } from "@/content/weeks/week-2-c-and-pointer";
 import { Week3PythonPwnDeck } from "@/content/weeks/week-3-pwntools-and-shellcode";
 import { Week4OrwShellcodeDeck } from "@/content/weeks/week-4-orw-shellcode";
+import { Week5BofPracticeDeck } from "@/content/weeks/week-5-bof-practice";
 
 export type Week = {
   weekNumber: number;
@@ -40,7 +41,14 @@ export const weeks: Week[] = [
     title: "ORW 셸코드와 shell_basic 분석",
     description: "4주차 자료입니다",
     deck: Week4OrwShellcodeDeck,
-  }
+  },
+  {
+    weekNumber: 5,
+    slug: "week-5-bof-practice",
+    title: "BOF 실습 - Root Me basic 1",
+    description: "지난 과제 리뷰, BOF 개념 복습, Root Me 실습을 위한 5주차 자료입니다",
+    deck: Week5BofPracticeDeck,
+  },
 ];
 
 export function getWeekBySlug(slug: string) {
