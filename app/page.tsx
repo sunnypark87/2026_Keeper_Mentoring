@@ -57,6 +57,24 @@ export default function Home() {
               </Link>
             ))}
           </div>
+
+          <Link
+            href="/closing"
+            className="home-week-card group rounded-[1.5rem] border border-inverse-border bg-inverse-surface p-6 transition hover:-translate-y-1 hover:border-accent hover:bg-accent-soft"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              Closing
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-inverse">
+              마무리 인사
+            </h3>
+            <p className="mt-3 text-base leading-7 text-inverse-subtle">
+              멘토링을 마무리하며 함께 본 내용을 정리하는 인사 슬라이드입니다
+            </p>
+            <p className="mt-6 text-sm font-medium text-inverse group-hover:text-accent">
+              슬라이드 보기
+            </p>
+          </Link>
         </section>
       </div>
     </main>
