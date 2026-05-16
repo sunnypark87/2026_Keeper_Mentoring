@@ -4,6 +4,7 @@ import { Week2CPointerDeck } from "@/content/weeks/week-2-c-and-pointer";
 import { Week3PythonPwnDeck } from "@/content/weeks/week-3-pwntools-and-shellcode";
 import { Week4OrwShellcodeDeck } from "@/content/weeks/week-4-orw-shellcode";
 import { Week5BofPracticeDeck } from "@/content/weeks/week-5-bof-practice";
+import { Week6BofMitigationDeck } from "@/content/weeks/week-6-bof-mitigation";
 
 export type Week = {
   weekNumber: number;
@@ -48,6 +49,13 @@ export const weeks: Week[] = [
     title: "BOF 실습 - Root Me basic 1",
     description: "지난 과제 리뷰, BOF 개념 복습, Root Me 실습을 위한 5주차 자료입니다",
     deck: Week5BofPracticeDeck,
+  },
+  {
+    weekNumber: 6,
+    slug: "week-6-bof-mitigation",
+    title: "BOF 보호 기법",
+    description: "BOF exploit을 어렵게 만드는 Canary, NX, ASLR, PIE, RELRO 등 보호 기법을 정리하는 6주차 자료입니다",
+    deck: Week6BofMitigationDeck,
   },
 ];
 
